@@ -5,20 +5,30 @@
         string filename = "input.txt";
         string? textLine = string.Empty;
         StreamReader streamReader = new StreamReader(filename);
-        int sum = 0;        
-        string[] splitText;        
+        int sum = 0;
+        bool day2 = true;
+        string[] splitText;
         Range[] range = new Range[2];
         while (!streamReader.EndOfStream)
         {
             textLine = streamReader.ReadLine();
             if (!string.IsNullOrEmpty(textLine))
-            {                
+            {
                 splitText = textLine.Split(',');
                 range[0] = GetRange(splitText[0]);
                 range[1] = GetRange(splitText[1]);
-                if ((range[0].Start.Value <= range[1].Start.Value && range[0].End.Value >= range[1].End.Value) || (range[1].Start.Value <= range[0].Start.Value && range[1].End.Value >= range[0].End.Value))
+                if (day2) { 
+                    if ((range[0].Start.Value <= range[1].End.Value && range[0].End.Value >= range[1].Start.Value) || (range[1].Start.Value <= range[0].End.Value && range[1].End.Value >= range[0].Start.Value))
+                    {
+                        sum++;
+                    }
+                }
+                else
                 {
-                    sum++;
+                    if ((range[0].Start.Value <= range[1].Start.Value && range[0].End.Value >= range[1].End.Value) || (range[1].Start.Value <= range[0].Start.Value && range[1].End.Value >= range[0].End.Value))
+                    {
+                        sum++;
+                    }
                 }
 
 
