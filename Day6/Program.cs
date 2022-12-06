@@ -5,7 +5,14 @@
         string filename = "input.txt";
         int i=0;
         bool found=false;
-        bool part2 = false;
+        bool part2 = true;
+        int searchLen =0;
+        if (part2){
+            searchLen=14;
+        }
+        else{
+            searchLen=4;
+        }
         string? textLine = string.Empty;
         StreamReader streamReader = new StreamReader(filename);        
         
@@ -14,10 +21,11 @@
             textLine = streamReader.ReadToEnd();        
         }
         streamReader.Close();
-        for(i=0;(i<textLine.Length-4) && (!found);i++){
-             if (isUnique(textLine.Substring(i,4))){
+        
+        for(i=0;(i<textLine.Length-searchLen) && (!found);i++){
+             if (isUnique(textLine.Substring(i,searchLen))){
                 found=true;
-                i+=3;
+                i+=searchLen-1;
              }
         }
         
