@@ -1,19 +1,7 @@
 {
     "folders": [
         {
-            "path": "./Day1"
-        },
-        {
-            "path": "Day2"
-        },
-        {
-            "path": "Day3"
-        },
-        {
-            "path": "Day4"
-        },
-        {
-            "path": "Day5"
-        }
+            "path": "."
+        }        
     ]
 }
